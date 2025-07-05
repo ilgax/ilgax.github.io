@@ -1,6 +1,7 @@
 html {
     background-color: #f1f5f9;
     font-family: sans-serif;
+    height: 100%;
 }
 
 body {
@@ -8,7 +9,11 @@ body {
     width: 100%;
     max-width: 80ch;
     padding: 1rem;
+    padding-top: 90px; /* Added padding for fixed header */
     line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 * {
@@ -20,62 +25,111 @@ h1 {
     font-size: 2.5rem;
 }
 
+.content {
+    width: 100%;
+    flex: 1;
+}
+
 /* nav styles */
 .hamburger {
     padding-right: 20px;
     cursor: pointer;
+    display: none;
 }
 
 .hamburger .line {
     display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #ff9776;
+    width: 25px;
+    height: 3px;
+    margin-bottom: 5px;
+    background-color: #000;
+    transition: all 0.3s ease;
+}
+
+.dark .hamburger .line {
+    background-color: #fff;
 }
 
 .navigation {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
-    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .navigation a {
-    display: block;
+    display: inline-block;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 15px;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.dark .navigation a {
+    color: #fff;
 }
 
 .navigation a:hover,
 .navigation a:focus {
-    background-color: #ff9776;
+    color: #3b82f6;
 }
 
-.expanded {
-    display: unset;
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #3b82f6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-@media screen and (min-width: 636px) {
-    .navigation {
-        margin-left: 5em;
+.navigation a:hover::after,
+.navigation a:focus::after {
+    width: 70%;
+}
+
+@media screen and (max-width: 636px) {
+    .hamburger {
         display: block;
-        position: static;
-        width: auto;
-        background: none;
+    }
+
+    .navigation {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(241, 245, 249, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        display: none;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .navigation {
+        background-color: rgba(32, 32, 32, 0.95);
     }
 
     .navigation a {
-        display: inline-block;
-        padding: 15px 20px;
+        width: 100%;
+        padding: 15px 0;
     }
-    .hamburger {
-        display: none;
+
+    .expanded {
+        display: flex;
     }
+}
+html.dark {
+    background-color: #202020;
+    color: #fff;
+}
+
+.dark .navigation a {
+    color: #fff;
 }

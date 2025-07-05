@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Greeting from '../components/Greeting.svelte';
 const pageTitle = "Home Page";
 ---
 <Layout pageTitle={pageTitle}>
-    <h2></h2>
+    <Greeting client:load />
 </Layout>
