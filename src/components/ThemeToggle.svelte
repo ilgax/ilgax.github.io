@@ -15,7 +15,7 @@
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark';
       }
-      return 'light';
+      return 'dark';
     })();
 
     isDark = theme === 'dark';
@@ -57,17 +57,20 @@
     margin-left: 1em;
     width: 1.2em;
     height: 1.2em;
-    background-image: url(/assets/moon.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(0%) saturate(100%);
 
     transition: transform 0.12s linear;
   }
 
-  :global(.dark) button {
+  button {
     background-image: url(/assets/sun.svg);
     filter: brightness(0%) saturate(100%) invert(100%);
+  }
+
+  :global(:not(.dark)) button {
+    background-image: url(/assets/moon.svg);
+    filter: brightness(0%) saturate(100%);
   }
 
   button:hover,

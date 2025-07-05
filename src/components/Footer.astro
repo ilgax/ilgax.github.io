@@ -8,20 +8,20 @@ const username = "ilgax";
         width: 100%;
         display: flex;
         justify-content: center;
-        color: black;
+        color: #FCFCFE;
     }
 
     footer a {
-        color: black;
+        color: #FCFCFE;
         text-decoration: underline;
     }
 
-    :global(.dark) footer {
-        color: white;
+    :global(html:not(.dark)) footer {
+        color: #1E201F;
     }
 
-    :global(.dark) footer a {
-        color: #FFFAFA;
+    :global(html:not(.dark)) footer a {
+        color: #1E201F;
     }
 </style>
 <footer>

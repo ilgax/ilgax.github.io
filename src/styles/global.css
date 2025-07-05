@@ -1,15 +1,31 @@
 html {
-    background-color: #f1f5f9;
+    background-color: #1E201F;
     font-family: sans-serif;
     height: 100%;
+    color: #FCFCFE;
+}
+
+html:not(.dark) {
+    background-color: #f1f5f9;
+    color: #1E201F;
 }
 
 body {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+    --accent-color: hsl(232, 97%, 70%);
+    --text-color: #cdd6f4;
+    --latte-base: #eff1f5;
+    --latte-mantle: #e6e9ef;
+    --latte-crust: #dce0e8;
+    --latte-accent-color: hsl(231, 97%, 72%);
+    --latte-text-color: #4c4f69;
+
     margin: 0 auto;
     width: 100%;
     max-width: 80ch;
-    padding: 1rem;
-    padding-top: 90px;
+    padding: 90px 1rem 1rem;
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
@@ -19,6 +35,8 @@ body {
 * {
     box-sizing: border-box;
 }
+
+
 
 h1 {
     margin: 1rem 0;
@@ -42,12 +60,20 @@ h1 {
     width: 25px;
     height: 3px;
     margin-bottom: 5px;
-    background-color: #000;
+    background-color: var(--text-color);
     transition: all 0.3s ease;
 }
 
-.dark .hamburger .line {
-    background-color: #fff;
+.hamburger:hover .line {
+    background-color: var(--accent-color);
+}
+
+.hamburger .line {
+    background-color: var(--text-color);
+}
+
+html:not(.dark) .hamburger .line {
+    background-color: var(--latte-text-color);
 }
 
 .navigation {
@@ -62,36 +88,25 @@ h1 {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    color: #000;
+    color: var(--text-color);
     transition: color 0.3s ease;
     position: relative;
 }
 
-.dark .navigation a {
-    color: #fff;
+html:not(.dark) .navigation a {
+    color: var(--latte-text-color);
 }
 
 .navigation a:hover,
 .navigation a:focus {
-    color: #3b82f6;
+    color: var(--accent-color);
 }
 
-.navigation a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #3b82f6;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+html:not(.dark) .navigation a:hover,
+html:not(.dark) .navigation a:focus {
+    color: var(--latte-accent-color);
 }
 
-.navigation a:hover::after,
-.navigation a:focus::after {
-    width: 70%;
-}
 
 @media screen and (max-width: 636px) {
     .hamburger {
@@ -103,7 +118,7 @@ h1 {
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: rgba(241, 245, 249, 0.95);
+        background-color: rgba(30, 32, 31, 0.95);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
@@ -112,9 +127,10 @@ h1 {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
-    .dark .navigation {
-        background-color: rgba(32, 32, 32, 0.95);
+    html:not(.dark) .navigation {
+        background-color: rgba(241, 245, 249, 0.95);
     }
+
 
     .navigation a {
         width: 100%;
@@ -124,12 +140,4 @@ h1 {
     .expanded {
         display: flex;
     }
-}
-html.dark {
-    background-color: #202020;
-    color: #fff;
-}
-
-.dark .navigation a {
-    color: #fff;
 }

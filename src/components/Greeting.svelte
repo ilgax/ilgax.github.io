@@ -11,7 +11,7 @@
 <style>
   .banner {
     background: linear-gradient(to right, #4a00e0, #8e2de2);
-    color: white;
+    color: #FCFCFE;
     padding: 2rem;
     border-radius: 0.5rem;
     text-align: center;
