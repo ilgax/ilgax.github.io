@@ -9,7 +9,7 @@ body {
     width: 100%;
     max-width: 80ch;
     padding: 1rem;
-    padding-top: 90px; /* Added padding for fixed header */
+    padding-top: 90px;
     line-height: 1.5;
     min-height: 100vh;
     display: flex;
