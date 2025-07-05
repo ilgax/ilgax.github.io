@@ -1,17 +1,7 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import '../styles/global.css';
-const pageTitle= "404 Not Found";
+import Layout from '../layouts/Layout.astro';
+const pageTitle = "404 Not Found";
 ---
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-    </head>
-
-    <body>
-        <Navigation />
-        <h1>{pageTitle}</h1>
-    </body>
-</html>
+<Layout pageTitle={pageTitle}>
+    <h2></h2>
+</Layout>
