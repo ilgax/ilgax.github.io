@@ -1,0 +1,19 @@
+---
+const platform = "github";
+const username = "ilgax";
+import Social from './Social.astro';
+---
+<style>
+    footer {
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<footer>
+    <p>
+        <a href={`https://www.${platform}.com/${username}/${username}.github.io`}>Source</a>
+        <Social platform={platform} username={username} />
+    </p>
+</footer>

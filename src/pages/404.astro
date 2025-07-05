@@ -1,4 +1,6 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
 const pageTitle= "404 Not Found";
 ---
 <html lang="en">
@@ -9,9 +11,7 @@ const pageTitle= "404 Not Found";
     </head>
 
     <body>
-        <a href="/">Index</a>
-        <a href="/about">About</a>
-        <a href="/404">404</a>
+        <Navigation />
         <h1>{pageTitle}</h1>
     </body>
 </html>
